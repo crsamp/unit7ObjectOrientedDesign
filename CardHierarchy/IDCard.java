@@ -19,4 +19,15 @@ public class IDCard extends Card
     {
         return false;
     }
+    
+    public boolean equals(Object otherObject)
+    {
+        if(this.getClass() == otherObject.getClass())
+        {
+            IDCard other = (IDCard) otherObject;
+            return this.getName().equals(other.getName())
+                && this.idNumber.equals(other.idNumber);
+        }
+        return false;
+    }
 }

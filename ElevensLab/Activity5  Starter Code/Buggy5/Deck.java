@@ -45,7 +45,7 @@ public class Deck {
 	 * @return true if this deck is empty, false otherwise.
 	 */
 	public boolean isEmpty() {
-		return size < 0;
+		return size <= 0;
 	}
 
 	/**
@@ -69,7 +69,7 @@ public class Deck {
 			cards.set(k, cards.get(randPos));
 			cards.set(randPos, temp);
 		}
-		size = cards.size();
+		size = 52;
 	}
 
 	/**

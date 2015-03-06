@@ -20,5 +20,17 @@ public class CallingCard extends Card
     {
         return false;
     }
+    
+    public boolean equals(Object otherObject)
+    {
+        if(this.getClass() == otherObject.getClass())
+        {
+            CallingCard other = (CallingCard) otherObject;
+            return this.getName().equals(other.getName())
+                && this.cardNumber.equals(other.cardNumber)
+                && this.pin == other.pin;
+        }
+        return false;
+    }
 }
     
