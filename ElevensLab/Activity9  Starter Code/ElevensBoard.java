@@ -83,64 +83,37 @@ public class ElevensBoard extends Board {
     public boolean anotherPlayIsPossible() {
         List<Integer> cardsInPlay = new ArrayList<Integer>();
         cardsInPlay = this.cardIndexes();
-        int count = 0;
-        int numOfZeros = 0;
-        for(int i = 1; i<cardsInPlay.size();i++)
+        List<Integer> cardsInPlay2 = new ArrayList<Integer>();
+       
+        for(int i = 0; i<cardsInPlay.size();i++)
         {
-
-            List<Integer> selectedCards = new ArrayList<Integer>();
-            List<Integer> selectedCards2 = new ArrayList<Integer>();
-            selectedCards.add(i);
-            selectedCards.add(i+1);
-
-            if(this.isLegal(selectedCards) == true)
+            for(int j = 0;j<cardsInPlay.size(); j++)
             {
-                return true;
+                cardsInPlay2.clear();
+                cardsInPlay2.add(i);
+                cardsInPlay2.add(j);
+                if(this.isLegal(cardsInPlay2) == true)
+                {
+                    return true;
+                }
             }
-
-            if(i == cardsInPlay.size()-1)
+        }
+        
+        for(int k = 0; k<cardsInPlay.size(); k++)
+        {
+            for(int l = 0; l<cardsInPlay.size(); l++)
             {
-                count++;
-                if(count == 1)
+                for(int m = 0; m<cardsInPlay.size(); m++)
                 {
-                    i = count+1;
+                    cardsInPlay2.clear();
+                    cardsInPlay2.add(k);
+                    cardsInPlay2.add(l);
+                    cardsInPlay2.add(m);
+                    if(this.isLegal(cardsInPlay2) == true)
+                    {
+                        return true;
+                    }
                 }
-                else if(count == 2)
-                {
-                    i = count+1;
-                }
-                else if(count == 3)
-                {
-                    i = count+1;
-                }
-                else if(count == 4)
-                {
-                    i = count+1;
-                }
-                else if(count == 5)
-                {
-                    i = count+1;
-                }
-                else if(count == 6)
-                {
-                    i = count+1;
-                }
-                else if(count == 7)
-                {
-                    i = count+1;
-                }
-                else
-                {
-                    i = count+1;
-                }
-
-            }
-            selectedCards2.add(i);
-            selectedCards2.add(i+1);
-            selectedCards2.add(i+2);
-            if(this.isLegal(selectedCards2) == true)
-            {
-                return true;
             }
         }
         return false;
